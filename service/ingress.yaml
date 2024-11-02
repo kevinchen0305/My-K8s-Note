@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ${my-dashboard}
+  namespace: default
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: ${my.dashboard.io}
+    http:
+      paths:
+      - backend:
+          service:
+            name: ${service-name}
+            port:
+              number: ${service-port}
+        pathType: ImplementationSpecific
