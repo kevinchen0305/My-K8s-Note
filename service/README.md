@@ -27,5 +27,7 @@ after creating ingress
 ```
 vim /etc/hosts
 ```
-add: 
+add
+```
 127.0.0.1 ${your hostname}
+```
