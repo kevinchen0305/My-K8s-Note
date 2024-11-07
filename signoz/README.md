@@ -84,3 +84,5 @@ Deploy Fluent Bit
 ```
 helm upgrade --install fluent-bit fluent/fluent-bit -f /home/ubuntu/fluent-bit/values.yaml -n platform
 ```
+
+## (Optional) Fluent Bit as a sidecar container
