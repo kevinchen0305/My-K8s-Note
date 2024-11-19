@@ -17,6 +17,7 @@ https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-kubectl-bi
 
 ### 📌 Install minikube
 https://minikube.sigs.k8s.io/docs/start/
+
 minkube start
 ```
 minikube start --driver=docker --memory 12384 --cpus=4 --kubernetes-version v1.25.0
