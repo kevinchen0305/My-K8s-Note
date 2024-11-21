@@ -86,3 +86,33 @@ helm upgrade --install fluent-bit fluent/fluent-bit -f /home/ubuntu/fluent-bit/v
 ```
 
 ## (Optional) Fluent Bit as a sidecar container
+For example, collect HDFS namenode logs
+```YAML
+spec:
+  containers:
+  - name: main-application
+    ...
+    ...
+    volumeMounts:
+      - name: beaver-logging-share-log
+        mountPath: /opt/hadoop/logs
+  - name: fluent-bit
+    image: "cr.fluentbit.io/fluent/fluent-bit:3.1.9"
+    imagePullPolicy: IfNotPresent
+    command:
+      - /fluent-bit/bin/fluent-bit
+    args:
+      - --workdir=/fluent-bit/etc
+      - --config=/fluent-bit/etc/conf/fluent-bit.conf
+    volumeMounts:
+      - name: config
+        mountPath: /fluent-bit/etc/conf
+      - name: beaver-logging-share-log
+        mountPath: /opt/hadoop/logs
+  volumes:
+    - name: beaver-logging-share-log
+      emptyDir: {}
+    - name: config
+      configMap:
+        name: fluent-bit
+```
