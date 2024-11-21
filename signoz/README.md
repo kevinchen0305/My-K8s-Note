@@ -88,13 +88,13 @@ helm upgrade --install fluent-bit fluent/fluent-bit -f /home/ubuntu/fluent-bit/v
 ## (Optional) Fluent Bit as a sidecar container
 For example, collect HDFS namenode logs
 ```YAML
-...
-...
+、、、
+、、、
 spec:
   containers:
   - name: main-application
-    ...
-    ...
+    、、、
+    、、、
     volumeMounts:
       - name: beaver-logging-share-log
         mountPath: /opt/hadoop/logs
