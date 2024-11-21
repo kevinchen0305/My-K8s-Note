@@ -120,3 +120,8 @@ spec:
 ```
 
 ## (Optional) SigNoz uses external ClickHouse
+(temp)
+```
+helm pull oci://registry-1.docker.io/bitnamicharts/clickhouse --untar
+helm install my-release oci://registry-1.docker.io/bitnamicharts/clickhouse -f /Users/cfh00901239/Downloads/keycloak_product/deploy-cafe-keycloak/signoz/clickhouse/values.yaml -n test
+```
