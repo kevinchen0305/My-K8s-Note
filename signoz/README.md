@@ -21,12 +21,12 @@ otelCollector:
 、、、
 、、、
   ports:
-      fluentforward:
-        enabled: true
-        containerPort: 24224
-        servicePort: 24224
-        nodePort: ""
-        protocol: TCP
+    fluentforward:
+      enabled: true
+      containerPort: 24224
+      servicePort: 24224
+      nodePort: ""
+      protocol: TCP
 ```
 Add fluentforward reciever
 ```Yaml
