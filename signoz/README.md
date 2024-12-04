@@ -125,3 +125,16 @@ spec:
 helm pull oci://registry-1.docker.io/bitnamicharts/clickhouse --untar
 helm install my-release oci://registry-1.docker.io/bitnamicharts/clickhouse -f /Users/cfh00901239/Downloads/keycloak_product/deploy-cafe-keycloak/signoz/clickhouse/values.yaml -n test
 ```
+
+## Uninstall SigNoz
+```
+helm -n platform uninstall "my-release"
+```
+```
+kubectl -n platform patch \
+  clickhouseinstallations.clickhouse.altinity.com/my-release-clickhouse \
+  -p '{"metadata":{"finalizers":[]}}' --type=merge
+```
+```
+kubectl -n platform delete pvc -l app.kubernetes.io/instance=my-release
+```
